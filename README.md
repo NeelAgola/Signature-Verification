@@ -140,4 +140,4 @@ number of 0 / number of 255 = 0.44
 
 So, this image is signed.
 
-
+# Youtube video link https://youtu.be/EB2aufGwDqM 
