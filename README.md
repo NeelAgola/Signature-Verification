@@ -2,7 +2,7 @@
 
 A simple tool to detect if there is a signature in an image or a PDF file.
 
-#Installation of PyPi
+# Installation of PyPi
 
 It's the quick way to use this tool.
 
@@ -10,19 +10,19 @@ signature-detect package contains the codes in the src.
 
 pip install signature-detect
 
-#Example
+# Example
 
 We use the following image as an example. The full example is in the demo notebook
 
 ![signed_image](https://user-images.githubusercontent.com/78462564/235417777-2d04d4a8-e430-40a4-9f36-2189a02dd8a0.jpeg)
 
-#Loader
+# Loader
 
 The loader reads the file and creates a mask.
 
 The mask is a numpy array. The bright parts are set to 255, the rest is set to 0. It contains ONLY these 2 numbers.
 
-#Atrributes
+# Atrributes
 
 low_threshold = (0, 0, 250)
 
@@ -30,13 +30,13 @@ high_threshold = (255, 255, 255)
 
 They control the creation of the mask, used in the function cv.inRange.
 
-#Result
+# Result
 
 Here, yellow is 255, purple is 0.
 
 ![mask](https://user-images.githubusercontent.com/78462564/235418010-9a759ef0-5b7e-4826-9e5a-50fcf9ab7c8b.jpeg)
 
-#Extractor
+# Extractor
 
 The extractor, first, generates the regions from the mask.
 
@@ -70,7 +70,7 @@ amplfier is given by the user.
 
 remove the small and big outliers
 
-#Attributes
+# Attributes
 
 outlier_weight = 3
 
@@ -82,15 +82,15 @@ amplfier = 10
 
 min_area_size = 10
 
-#Result
+# Result
 
 ![labeled_mask](https://user-images.githubusercontent.com/78462564/235418221-dc2105a0-9efe-4748-926d-c39d05e2292f.jpeg)
 
-#Cropper
+# Cropper
 
 The cropper finds the contours of regions in the labeled masks and crop them.
 
-#Attributes
+# Attributes
 
 Suppose (h, w) = region.shape.
 
@@ -104,15 +104,15 @@ border = min(h, w) * border_ratio
 
 The border will be removed if this attribute is not 0.
 
-#Result
+# Result
 
 ![signature](https://user-images.githubusercontent.com/78462564/235418311-76045d00-d6bb-455c-92b2-7470e38e13a3.jpeg)
 
-#Judger
+# Judger
 
 The judger reads the cropped mask and identifies if it's a signature or not.
 
-#Attributes
+# Attributes
 
 Suppose (h, w) = cropped_mask.shape.
 
@@ -132,7 +132,7 @@ size_ratio = [1, 4]
 
 max_pixel_ratio = [0.01, 1]
 
-#Result
+# Result
 
 max(h, w) / min(h, w) = 3.48
 
